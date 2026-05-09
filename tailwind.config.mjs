@@ -22,6 +22,14 @@ export default {
           800: "#650818",
           900: "#440510",
         },
+        accent: {
+          /* BC-Teal — secondary accent for Microsoft Business Central
+             references. DEFAULT is text-safe; use accent-bold for
+             fills/borders where the pure BC teal is desired. */
+          DEFAULT: "rgb(var(--color-accent) / <alpha-value>)",
+          bold: "rgb(var(--color-accent-bold) / <alpha-value>)",
+          hover: "rgb(var(--color-accent-hover) / <alpha-value>)",
+        },
         surface: {
           DEFAULT: "rgb(var(--color-surface) / <alpha-value>)",
           alt: "rgb(var(--color-surface-alt) / <alpha-value>)",

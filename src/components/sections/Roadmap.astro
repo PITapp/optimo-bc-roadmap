@@ -1,10 +1,10 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 import Section from "@components/ui/Section.astro";
 import SectionHeader from "@components/ui/SectionHeader.astro";
 
 const entry = await getEntry("sections", "roadmap");
-const { Content } = await entry!.render();
+const { Content } = await render(entry!);
 const { eyebrow, title, lede } = entry!.data;
 
 const steps = [
@@ -41,9 +41,9 @@ const steps = [
 
   <ol class="mt-14 grid gap-6 md:grid-cols-3">
     {
-      steps.map((item) => (
+      steps.map((item, idx) => (
         <li class="relative rounded-xl border border-line/70 bg-surface-alt p-6 shadow-card dark:shadow-card-dark">
-          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+          <span class:list={["text-xs font-semibold uppercase tracking-[0.18em]", idx === 0 ? "text-accent" : "text-brand"]}>
             {item.step} · {item.pillar}
           </span>
           <h3 class="mt-3 text-xl font-semibold text-ink">{item.title}</h3>

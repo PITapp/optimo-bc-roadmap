@@ -57,6 +57,13 @@
     --color-brand: 200 16 46;           /* #C8102E */
     --color-brand-hover: 168 14 39;     /* #A80E27 — darker on hover */
 
+    /* BC-Teal — secondary accent (Microsoft Business Central primary).
+       --color-accent is the text-safe darker tone (WCAG AA on off-white);
+       --color-accent-bold is the pure BC teal — only for fills/borders. */
+    --color-accent: 0 120 130;          /* #007882 */
+    --color-accent-bold: 0 183 195;     /* #00B7C3 */
+    --color-accent-hover: 0 96 105;     /* #006069 */
+
     color-scheme: light;
   }
 
@@ -73,6 +80,11 @@
     /* Softer, desaturated red so the accent doesn't glow on dark surfaces. */
     --color-brand: 219 90 110;          /* #DB5A6E */
     --color-brand-hover: 235 125 142;   /* #EB7D8E — lighter on hover */
+
+    /* BC-Teal — lighter, less neon variant for dark surfaces. */
+    --color-accent: 90 196 204;         /* #5AC4CC */
+    --color-accent-bold: 90 196 204;
+    --color-accent-hover: 125 213 219;  /* #7DD5DB */
 
     color-scheme: dark;
   }

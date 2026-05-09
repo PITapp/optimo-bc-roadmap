@@ -1,7 +1,8 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const pillars = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/pillars" }),
   schema: z.object({
     order: z.number(),
     anchor: z.string(),
@@ -30,7 +31,7 @@ const pillars = defineCollection({
 });
 
 const sections = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/sections" }),
   schema: z.object({
     eyebrow: z.string().optional(),
     title: z.string(),

@@ -9,7 +9,7 @@ Präsentationstitel: **Optimo Business Central Roadmap**.
 
 ## Tech-Stack
 
-- Astro 5 (TypeScript, strict)
+- Astro 6 (TypeScript, strict) — Content Layer mit `glob`-Loader
 - Tailwind CSS 3 + `@tailwindcss/typography`
 - Astro Content Collections für alle Sektions-Texte (`src/content/`)
 - Statischer Output (`dist/`-Ordner), kein SSR-Adapter
@@ -34,7 +34,9 @@ Präsentationstitel: **Optimo Business Central Roadmap**.
   FOUC.
 - **Design-Tokens** als CSS-Variablen in `src/styles/global.css` und
   als Theme-Erweiterung in `tailwind.config.mjs`
-  (Farben `surface`, `ink`, `line`, Akzent `brand` = Optimo-Rot).
+  (Farben `surface`, `ink`, `line`, Hauptakzent `brand` = Optimo-Rot,
+  sparsamer Sekundärakzent `accent` = BC-Teal nur für direkte
+  Microsoft-Business-Central-Bezüge).
 
 ## Arbeitsweise
 
