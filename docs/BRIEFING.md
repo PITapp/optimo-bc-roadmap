@@ -29,7 +29,9 @@ Die Seite soll Optimo ein **zusammenhängendes Modernisierungspaket** zeigen, da
 2. **Warum jetzt?** → Der Status quo ist an mehreren Stellen alt geworden (Business Central Version 14, veraltete Scanner-Lösung, 20 Jahre alte Außendienst-Software, papier- und telefongetriebener Auslieferungsprozess, Etikettentool in Navision 5 ohne Migrationspfad). Hier entsteht technische Schuld, die adressiert werden muss.
 3. **Warum PITapp?** → Ein einzelner, vertrauter Partner für alle fünf Themen statt mehrerer Dienstleister.
 
-Die Präsentation verkauft kein einzelnes Produkt, sondern einen **strategischen Gesamtweg**. Das ist die wichtigste Botschaft: Alle fünf Säulen gehören zusammen und wirken gemeinsam – die BC-Migration ist dabei das technische Fundament, auf dem die vier Apps besonders stark aufsetzen können.
+Die Präsentation verkauft kein einzelnes Produkt, sondern einen **strategischen Gesamtweg**. Das ist die wichtigste Botschaft: Alle fünf Säulen gehören zusammen und wirken gemeinsam – die BC-Migration ist dabei das technische Fundament, auf dem die vier Apps und das integrierte Etiketten-Modul aufsetzen.
+
+**Strategische Linie der Roadmap:** Eigene Apps entstehen dort, wo Workflows mobil, offline oder feldbezogen sind und der BC-Client nicht funktioniert (Lager, Außendienst, Versand). In Business Central direkt läuft alles, was am Schreibtisch im Büro stattfindet – inklusive des Etiketten-Moduls. Diese Linie zieht sich konsistent durch die Architekturentscheidungen der einzelnen Säulen.
 
 ---
 
@@ -50,7 +52,7 @@ Die Präsentation verkauft kein einzelnes Produkt, sondern einen **strategischen
 
 ## 4. Die fünf Säulen im Detail
 
-Die Säulen werden auf der Seite in zeitlich-logischer Reihenfolge präsentiert: zuerst das Fundament (BC-Migration), darauf aufbauend die vier Apps für unterschiedliche Nutzergruppen (Lager, Außendienst, Fuhrpark, Produktion/Markenkennzeichnung).
+Die Säulen werden auf der Seite in zeitlich-logischer Reihenfolge präsentiert: zuerst das Fundament (BC-Migration), darauf aufbauend die vier Apps für Lager, Außendienst und Fuhrpark sowie das integrierte Etiketten-Modul für Produktion und Markenkennzeichnung.
 
 ### 4.1 Säule 1 – Migration Business Central (on-prem, neueste Version)
 
@@ -61,11 +63,11 @@ Die Säulen werden auf der Seite in zeitlich-logischer Reihenfolge präsentiert:
 **Was PITapp konkret anbietet:**
 - Durchführung der Migration Version 14 → aktuelle BC-Version (on-prem).
 - Darstellung und Erläuterung der Vorteile der neuen Version (bessere Oberfläche, neue Funktionen, moderne Schnittstellen, längere Wartungszusage).
-- Abstimmung mit den vier App-Säulen, damit Scanner-App, Außendienst-App, Versand-App und Etiketten-App optimal zur neuen BC-Version passen.
+- Abstimmung mit den vier App-Säulen und dem Etiketten-Modul, damit Scanner-App, Außendienst-App, Versand-App und das in BC integrierte Etiketten-Modul optimal zur neuen BC-Version passen.
 
-**Wichtiger Sondereffekt der Migration:** Das in Navision 5 entwickelte Etikettentool für Optimos Produktetiketten lässt sich nicht in die aktuelle BC-Version übernehmen. Es wird durch die Etiketten-App aus Säule 5 ersetzt. Die beiden Säulen gehören in der Roadmap-Logik damit zusammen — die Etiketten-App ist Pflicht-Ersatz, nicht optionaler Ausbau.
+**Wichtiger Sondereffekt der Migration:** Das in Navision 5 entwickelte Etikettentool für Optimos Produktetiketten lässt sich nicht in die aktuelle BC-Version übernehmen. Es wird durch das Etiketten-Modul aus Säule 5 ersetzt – direkt in der neuen BC-Version, ohne zweite Anwendung. Die beiden Säulen gehören in der Roadmap-Logik damit zusammen; das Etiketten-Modul ist Pflicht-Ersatz, nicht optionaler Ausbau.
 
-**Kernbotschaft dieser Säule:** Das Fundament, auf dem die anderen vier Säulen aufbauen. Die neue BC-Version bringt die moderne Web-Oberfläche, die Schnittstellen (REST/OData) und die Erweiterbarkeit mit, die Scanner-App, Außendienst-App, Versand-App und Etiketten-App brauchen. Deshalb in der Präsentation zuerst platziert: ohne dieses Fundament sind die vier Apps deutlich aufwendiger und teilweise gar nicht sinnvoll umsetzbar.
+**Kernbotschaft dieser Säule:** Das Fundament, auf dem die anderen vier Säulen aufbauen. Die neue BC-Version bringt die moderne Web-Oberfläche, die Schnittstellen (REST/OData) und die Erweiterbarkeit mit, die Scanner-App, Außendienst-App, Versand-App und das Etiketten-Modul brauchen. Deshalb in der Präsentation zuerst platziert: ohne dieses Fundament sind die vier Apps und das Etiketten-Modul deutlich aufwendiger und teilweise gar nicht sinnvoll umsetzbar.
 
 ### 4.2 Säule 2 – Moderne Scanner-App für Business Central
 
@@ -155,47 +157,44 @@ Die Säulen werden auf der Seite in zeitlich-logischer Reihenfolge präsentiert:
 
 ### 4.5 Säule 5 – Etiketten & Markenkennzeichnung
 
-**Ausgangssituation:** Optimo erzeugt für seine Matratzen und Lattenroste großformatige, farbige Produktetiketten, die direkt auf das fertige Produkt aufgeklebt werden. Diese Etiketten tragen Logos, Markenzeichen, Produkthinweise (zum Beispiel „elektrische Federleiste") und Symbole für Recycling, Pflege und Zertifikate. Heute wird das Etikett für jeden Artikel aus vielen kleinen Bitmap-Bausteinen zusammengesetzt – gesteuert über ein Eigenentwicklungs-Tool in **Navision 5**, das in dieser Form nicht mehr zukunftsfähig ist und in der Migration auf die aktuelle BC-Version **nicht mitgenommen werden kann**. Damit fällt eine eigenständige, produktionskritische Funktion weg – und genau diese Lücke schließt die neue Säule. Die Etiketten-App ist Pflicht-Ersatz, nicht optionaler Ausbau.
+**Ausgangssituation:** Optimo erzeugt für seine Matratzen und Lattenroste großformatige, farbige Produktetiketten, die direkt auf das fertige Produkt aufgeklebt werden. Diese Etiketten tragen Logos, Markenzeichen, Produkthinweise (zum Beispiel „elektrische Federleiste") und Symbole für Recycling, Pflege und Zertifikate. Heute wird jedes Etikett aus vielen kleinen Bitmap-Bausteinen zusammengesetzt – gesteuert über ein Eigenentwicklungs-Tool in **Navision 5**, das in dieser Form nicht zukunftsfähig ist und in der Migration auf die aktuelle Business-Central-Version nicht mitgenommen werden kann. Damit fällt eine produktionskritische Funktion weg – und genau diese Lücke schließt das neue Modul. Pflicht-Ersatz, nicht optionaler Ausbau.
 
-**Zielbild:** Eine moderne PITapp-Webanwendung, die die Etiketten parametergesteuert aus einer zentralen Symbol- und Bitmap-Bibliothek zusammensetzt, in einer Live-Vorschau zeigt und an Farbetikettendrucker oder als PDF ausgibt.
+**Zielbild:** Ein integriertes Etiketten-Modul direkt in der neuen Business-Central-Version. Nachfolger des Navision-5-Tools, sauber als native BC-Erweiterung umgesetzt – mit Bitmap-Bibliothek, fest definierten Etikettenvorlagen, Etikettenparametern am Artikel und Druckausgabe aus der gewohnten BC-Oberfläche.
 
-**Was die App leistet:**
-- Zentrale Bibliothek aller Bitmaps und Symbole: Logos, Markenzeichen, Recycling-, Pflege- und Hinweissymbole
-- WYSIWYG-Editor für Etikettenvorlagen mit Live-Vorschau
-- Parametergesteuerte Komposition: pro Artikel werden die richtigen Bausteine automatisch eingesetzt
-- Druckausgabe an die Farbetikettendrucker bei Optimo, in der gewünschten Menge
-- PDF-Ausgabe für Vorschau, Archivierung oder kleine Auflagen
-- Auftragswarteschlange mit Mengen, Sortierung und Drucker-Auswahl
-- Versionierung der Vorlagen und Druckhistorie – nachvollziehbar, welches Etikett wann in welcher Fassung verwendet wurde
+**Was das Modul leistet:**
+- Zentrale Bibliothek aller Bitmap-Bausteine in Business Central: Logos, Markenzeichen, Recycling-, Pflege- und Hinweissymbole – gepflegt wie jede andere BC-Stammdatentabelle, mit Bildvorschau und Versionierung.
+- Etikettenparameter direkt am Artikel: welche Vorlage gilt, welche Bausteine sind aktiv, welche Texte (mehrsprachig), welche Größe – Teil der Artikelkarte.
+- Fest definierte Etikettenvorlagen, vom Entwickler einmal angelegt und bei Bedarf erweitert – analog zu allen anderen Reports in BC.
+- Druckausgabe direkt aus der Artikelkarte, aus dem Produktionsauftrag oder als Stapelverarbeitung – an die Farbetikettendrucker bei Optimo, in der gewünschten Menge.
+- PDF-Ausgabe für Vorschau, Archivierung oder Kleinauflagen.
+- Druckhistorie pro Artikel: welche Etikettenfassung wurde wann gedruckt – nachvollziehbar im ERP.
 
-**Was die App bewusst NICHT macht:**
-- Keine Artikelstammdatenpflege – das bleibt in Business Central.
-- Keine Versand- oder Logistiketiketten – diese werden im BC-Standard bzw. in Säule 4 (Versand & Auslieferung) abgedeckt.
-- Keine Grafikbearbeitung der Bitmaps selbst – Logos und Symbole werden weiterhin in den jeweiligen Grafikprogrammen erstellt und nur als fertige Bausteine eingespielt.
+**Was das Modul bewusst NICHT macht:**
+- Kein WYSIWYG-Editor für Endanwender – Layoutänderungen sind selten und werden vom Entwickler in den festen Vorlagen umgesetzt.
+- Keine Versand- oder Logistiketiketten – diese deckt der BC-Standard bzw. die Versand-App (Säule 4) ab.
+- Keine Grafikbearbeitung der Bitmaps selbst – Logos und Symbole werden weiterhin in den jeweiligen Grafikprogrammen erstellt und als fertige Bausteine ins ERP eingespielt.
 
-**Architektur und Anbindung:** Eigenständige PITapp-Webanwendung. Sie liest Artikel und die etikettenrelevanten Parameter aus Business Central, hält die Bitmap-Bibliothek und die Layout-Vorlagen selbst, setzt das fertige Etikett serverseitig zusammen und gibt es an die Farbdrucker oder als PDF aus. Business Central bleibt das führende System für Artikel- und Etikettenparameter; die Label-App ist das Werkzeug für Gestaltung und Produktion.
+**Architektur und Anbindung:** Das Modul ist eine native Erweiterung in Business Central. Die Etikettenparameter, die Bitmap-Bibliothek und die Vorlagen liegen direkt im ERP; der Druck wird aus BC heraus angestoßen, ohne Umweg über ein zweites System. Aus Anwendersicht ist es Teil von Business Central – ein Klick auf der Artikelkarte oder im Produktionsauftrag löst den Etikettendruck aus. Das entspricht dem gewohnten Ablauf aus Navision 5.
 
-**Begründung der Architektur (eigene App statt BC-Erweiterung):**
-- **Grafische Komposition**: Business Central und die dort vorhandenen Report-Layouts (RDLC) sind nicht dafür gemacht, viele Bitmap-Bausteine bedingt zu überlagern und in Druckqualität auszugeben. Das ist die Kernaufgabe dieser App – und damit von Anfang an außerhalb der natürlichen Stärken von BC.
-- **Bedienoberfläche**: Eine eigene App ermöglicht eine moderne, visuelle Vorschau und einen WYSIWYG-Editor mit echtem Look-and-Feel. Im BC-Client mit Listen und Karten ist das nicht sauber abbildbar.
-- **Bitmap-Verwaltung**: Hunderte PNG-Dateien als Symbol- und Bausteinbibliothek lassen sich in einer eigenen Anwendung übersichtlicher pflegen, versionieren und gruppieren als in BC.
-- **Klare Trennung**: BC bleibt das ERP mit den Artikel- und Etikettenparametern, die Label-App ist das Markenwerkzeug für Gestaltung und Druck. Saubere Verantwortlichkeiten, einfache Updates.
+**Warum als BC-Modul und nicht als eigene App:**
+- **Layouts sind starr, nicht endbenutzer-gestaltbar.** Vorlagen werden vom Entwickler angelegt; Anwender pflegen Parameter, keine Layouts. Damit entfällt das Hauptargument für einen WYSIWYG-Editor – und damit für eine eigene App.
+- **Daten und Workflow leben sowieso in BC.** Artikel, Texte, Übersetzungen, Produktionsaufträge – alle Quellen sind im ERP. Eine zweite Anwendung würde Schnittstellen und doppelte Stammdatenführung schaffen, ohne fachlichen Mehrwert.
+- **Bürotätigkeit, kein mobiler Workflow.** Anders als bei Scanner, Außendienst und Versand findet diese Arbeit am Schreibtisch im BC-Client statt. Es gibt keinen Grund, daneben eine zweite Anwendung zu öffnen.
+- **Vertraute Bedienung.** In Navision 5 war es integriert. Die Mitarbeiter kennen den Ablauf seit Jahren – die Akzeptanz des neuen Moduls ist damit deutlich höher als bei einem Umzug in eine separate App.
 
 **Nutzen für Optimo:**
 - Geschlossene Lücke nach dem Wegfall des Navision-5-Etikettentools – ohne diese Säule fehlt nach der Migration ein produktionskritisches Werkzeug.
-- Schnellere Anlage und Anpassung neuer Etiketten gegenüber der heutigen Bitmap-Bastelei.
-- Konsistenter Markenauftritt am fertigen Produkt – nachvollziehbar versionierte Vorlagen, keine Schatten-Excel-Listen mehr.
+- Integrierter Workflow ohne Systembruch: Etiketten werden dort gedruckt, wo die Artikel und Produktionsaufträge ohnehin gepflegt werden.
+- Konsistenter Markenauftritt am fertigen Produkt – versionierte Vorlagen und Bausteine, keine Schatten-Excel-Listen mehr.
 - Druckhistorie pro Artikel: nachvollziehbar, welches Etikett wann in welcher Fassung gedruckt wurde – relevant für Qualitäts- und Reklamationsfälle.
 
 **Technische Eckdaten:**
-- Plattform: Web-Anwendung (Browser auf Bürorechnern und Produktionsterminals)
-- Schnittstellen: Business Central (REST/OData) für Artikel- und Etikettenparameter
-- Bitmap-Bibliothek und Layout-Vorlagen serverseitig
-- Ausgabe: direkter Druck an Farbetikettendrucker, alternativ PDF
+- Plattform: Native Business-Central-Erweiterung
+- Bibliothek und Vorlagen: gepflegt als BC-Stammdaten, Vorlagen als Reports
+- Ausgabe: Direkter Druck an Farbetikettendrucker, alternativ PDF
 - Entwicklung und Betrieb: PITapp
-- Hosting/Datenhaltung: Europäischer Datenraum, DSGVO-konform
 
-**Kernbotschaft dieser Säule:** Nachfolger des Navision-5-Etikettentools, das in der Migration nicht mitwandert. Parametergesteuerte Komposition vieler Bitmap-Bausteine zu fertigen Produktetiketten – die Aufgabe, für die Business Central und Standard-Etikettendrucker-Software gleichermaßen nicht gemacht sind.
+**Kernbotschaft dieser Säule:** Nachfolger des Navision-5-Etikettentools, sauber als integriertes Modul in der neuen Business-Central-Version. Anwender pflegen Parameter am Artikel und drucken im gewohnten Workflow; Layout, Bausteine und Vorlagen sind fest im System verankert.
 
 ---
 
@@ -212,7 +211,7 @@ Die Säulen werden auf der Seite in zeitlich-logischer Reihenfolge präsentiert:
 
 ## 6. Struktur der Präsentationsseite
 
-Die Seite folgt dieser Reihenfolge (zeitlich-logisch aufgebaut: erst das Gesamtbild, dann das Fundament, dann die vier Apps, dann der Kontakt):
+Die Seite folgt dieser Reihenfolge (zeitlich-logisch aufgebaut: erst das Gesamtbild, dann das Fundament, dann die vier Apps und das Etiketten-Modul, dann der Kontakt):
 
 1. **Hero / Titel**
    Projektname „Optimo Business Central Roadmap", kurzer Untertitel, PITapp als Absender. Einprägsame Einstiegsaussage.
@@ -233,7 +232,7 @@ Die Seite folgt dieser Reihenfolge (zeitlich-logisch aufgebaut: erst das Gesamtb
    Kurzbeschreibung, Funktionsblock, „Was die App bewusst nicht macht", Architekturbegründung, Nutzen, Technische Eckdaten. Klar machen: Die bestehende Optimo-Versandsoftware bleibt, ergänzt wird die Fahrerseite.
 
 7. **Säule 5 – Etiketten & Markenkennzeichnung**
-   Kurzbeschreibung, Funktionsblock, „Was die App bewusst nicht macht", Architekturbegründung, Nutzen, Technische Eckdaten. Den Zusammenhang mit Säule 1 ausdrücklich machen: Das Navision-5-Etikettentool fällt mit der Migration weg, diese Säule schließt die Lücke. Pflicht-Ersatz, nicht optionaler Ausbau.
+   Kurzbeschreibung, Funktionsblock, „Was das Modul bewusst nicht macht", Architekturbegründung (BC-Modul statt eigene App), Nutzen, Technische Eckdaten. Den Zusammenhang mit Säule 1 ausdrücklich machen: Das Navision-5-Etikettentool fällt mit der Migration weg, diese Säule schließt die Lücke direkt im neuen BC – Pflicht-Ersatz, nicht optionaler Ausbau.
 
 8. **Gesamtbild / Roadmap**
    Wie die fünf Säulen zusammenspielen. Dass sie einzeln bestellbar sind, aber als Paket den größten Nutzen entfalten. Besonders herausheben: Säule 1 als Fundament, auf dem die anderen vier besonders stark wirken. Zeitliche Sonderstellung von Säule 5 erwähnen: parallel oder unmittelbar nach der BC-Migration, weil sie produktionskritische Ersatzlösung ist.
@@ -252,7 +251,7 @@ Die Seite folgt dieser Reihenfolge (zeitlich-logisch aufgebaut: erst das Gesamtb
 - **Scanner-App** – durchgängig so, nicht mal so, mal anders.
 - **Außendienst-App** – die korrekte Bezeichnung für die Lösung in Säule 3. Es handelt sich technisch um eine eigenständige PITapp-App, nicht um ein BC-Modul.
 - **Versand-App** bzw. **Versand- & Auslieferungs-App** – die korrekte Bezeichnung für die Lösung in Säule 4. Ebenfalls eine eigenständige PITapp-App.
-- **Etiketten-App** bzw. **Etiketten- & Markenkennzeichnungs-App** – die korrekte Bezeichnung für die Lösung in Säule 5. Eigenständige PITapp-Webanwendung, Nachfolger des Etikettentools aus Navision 5.
+- **Etiketten-Modul** – die korrekte Bezeichnung für die Lösung in Säule 5. Bewusst nicht „App": Die Lösung ist eine native Erweiterung in Business Central, kein eigenständiges Produkt. Nachfolger des Etikettentools aus Navision 5. „Etiketten & Markenkennzeichnung" bleibt als Säulen-Überschrift erhalten.
 - **Navision 5** – Bezeichnung des Altsystems, in dem das heutige Etikettentool als Eigenentwicklung läuft. Bewusst so schreiben, damit klar ist, dass es sich um die Vorgängergeneration handelt.
 - **„on-prem"** bei der Migration – bewusst so erwähnen, damit der Unterschied zur Cloud-Variante klar ist.
 - **„offline-fähig"** ist bei Außendienst- und Versand-App ein zentrales Argument und darf in der Vorstandsebene genau so verwendet werden.
@@ -318,3 +317,11 @@ Chronologische Entscheidungen, die für die Präsentation und das Gesamtprojekt 
 - **Geprüft und verworfen: Zukauf BarTender oder NiceLabel** mit BC-Connector. Beides ist Industriestandard für Versand- und Barcode-Etiketten aus ERP-Systemen, passt aber nicht zu Optimos parametrischer Komposition vieler kleiner Bausteine je Artikel. Außerdem: laufende Lizenzkosten, Plattformbruch zur PITapp-Strategie eigener Apps.
 - **Entscheidung: Eigenentwicklung durch PITapp**, konsistent zu den anderen App-Säulen. Eine einheitliche Plattform für Optimo, Investment bleibt langfristig PITapp-seitig konsolidiert. Diese Erwägung wird nicht in der Präsentation thematisiert, ist aber als Hintergrund festgehalten.
 - **Reihenfolge der Säulen auf der Seite unverändert**, neue Säule 5 hinten angehängt: BC-Migration → Scanner-App → Außendienst-App → Versand-App → Etiketten-App. Folgt der Wertschöpfungskette vom Fundament über Lager, Vertrieb und Versand bis zum Markenauftritt am fertigen Produkt.
+
+### Stand 2026-05-12 (Nachtrag 2) – Revision Säule 5: BC-Modul statt eigene App
+
+- **Entscheidung:** Das Etiketten-Modul wird als native Business-Central-Erweiterung umgesetzt, nicht als eigenständige PITapp-Webanwendung. Die Säule bleibt als eigenständige fünfte Säule in der Roadmap sichtbar, ihre Architektur wechselt aber von „eigene App" zu „integriertes Modul".
+- **Hintergrund:** Bei Optimo sind die Etikettenlayouts in der Praxis starr. Anwender pflegen ausschließlich Parameter pro Artikel (Vorlage, aktive Bausteine, Hinweistexte, Größe) und lösen den Druck aus. Layoutänderungen finden selten statt und werden vom Entwickler in den festen Vorlagen umgesetzt. Damit entfällt das Hauptargument für einen WYSIWYG-Editor – und damit für eine eigene App.
+- **Vorteile der Revision:** Integrierter Workflow wie schon in Navision 5; keine Schnittstellen, keine doppelte Stammdatenführung; hohe Anwenderakzeptanz, weil der Ablauf identisch zum Altsystem ist; klare Architekturlinie für die Gesamt-Roadmap („eigene Apps für mobile und feldbezogene Workflows, Business Central für alles am Schreibtisch").
+- **Verworfen:** Eigene PITapp-Webanwendung „Optimo Label Studio" (ursprünglicher Plan, dokumentiert im vorherigen Nachtrag). Aufgrund der starren Layouts und der Bürotätigkeit ohne hinreichenden Mehrwert. Hybrid-Lösung mit BC-Frontend und externem Render-Service ebenfalls verworfen – unnötig komplex, wenn die in BC vorhandene Report-Engine den Bedarf abdeckt.
+- **Konsequenzen für angrenzende Sektionen:** Hero, Management Summary, Roadmap-Gesamtbild und Säule 1 wurden auf die neue Formulierung umgestellt („vier Apps und ein integriertes Etiketten-Modul" statt „fünf Apps"). Navigation und Säulen-Reihenfolge bleiben unverändert. Das Mockup „etiketten-editor.svg" wurde von einem WYSIWYG-Editor auf eine BC-Artikelkarte mit Reiter „Etikettenparameter" umgestellt.

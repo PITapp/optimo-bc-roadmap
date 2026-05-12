@@ -1,7 +1,7 @@
 ---
 eyebrow: "Management Summary"
 title: "Fünf Säulen, ein gemeinsamer Weg."
-lede: "PITapp schlägt Optimo ein zusammenhängendes Modernisierungspaket vor, das fünf konkrete Angebote zu einer strategischen Roadmap verbindet — die BC-Migration als Fundament, darauf vier Apps für Lager, Außendienst, Auslieferung und Markenkennzeichnung am Produkt."
+lede: "PITapp schlägt Optimo ein zusammenhängendes Modernisierungspaket vor, das fünf konkrete Angebote zu einer strategischen Roadmap verbindet — die BC-Migration als Fundament, darauf vier Apps für Lager, Außendienst und Auslieferung sowie ein integriertes Etiketten-Modul in Business Central für die Markenkennzeichnung am Produkt."
 ---
 
 <!-- TODO: Finaler Management-Summary-Text (3–4 Absätze, für sich

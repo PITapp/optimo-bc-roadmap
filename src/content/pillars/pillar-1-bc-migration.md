@@ -15,11 +15,11 @@ features:
   - title: "Eingebettete Power-BI-Dashboards"
     description: "Standard-Reports für Finanzen, Vertrieb und Lager direkt im BC-Rollencenter, ohne Custom-Entwicklung. Geschäftsführung und Bereichsleitung sehen aktuelle Zahlen ohne Excel-Export."
   - title: "Offene Schnittstellen (REST/OData-APIs)"
-    description: "Standardisierte, dokumentierte Schnittstellen sind das technische Fundament für die Scanner-App, die Außendienst-App, die Versand-App und die Etiketten-App. In Version 14 nur sehr eingeschränkt vorhanden."
+    description: "Standardisierte, dokumentierte Schnittstellen sind das technische Fundament für die Scanner-App, die Außendienst-App und die Versand-App; sie tragen ebenso das in BC integrierte Etiketten-Modul. In Version 14 nur sehr eingeschränkt vorhanden."
   - title: "Sieben Jahre Funktions-Plus seit Version 14"
     description: "Microsoft hat in jedem Halbjahres-Release Funktionen ergänzt: strukturierte E-Rechnung für gesetzliche Vorgaben, bessere Lager- und Kommissionier-Workflows, modernisiertes Buchhaltungs-Reporting, leistungsfähigere Workflow-Engine."
   - title: "Wegfallendes Etikettentool aus Navision 5"
-    description: "Die in Navision 5 entwickelte Eigenlösung für Produktetiketten lässt sich nicht in die aktuelle BC-Version übernehmen. Säule 5 (Etiketten & Markenkennzeichnung) schließt diese Lücke — die beiden Säulen gehören damit zusammen in die Roadmap."
+    description: "Die in Navision 5 entwickelte Eigenlösung für Produktetiketten lässt sich nicht in die aktuelle BC-Version übernehmen. Säule 5 (Etiketten & Markenkennzeichnung) schließt diese Lücke als integriertes BC-Modul — die beiden Säulen gehören damit zusammen in die Roadmap."
 keyMessage: "Das Fundament des Gesamtpakets — zuerst platziert, weil die vier App-Säulen darauf aufsetzen. On-prem bewahrt die volle Datenhoheit und schließt zugleich an die aktive Microsoft-Roadmap an, statt auf einer auslaufenden Version stehenzubleiben."
 galleryLayout: "screens"
 gallery:

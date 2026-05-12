@@ -1,7 +1,7 @@
 ---
 eyebrow: "Gesamtbild"
 title: "Wie die fünf Säulen zusammenwirken."
-lede: "Jede Säule steht für sich — gemeinsam entfalten sie den vollen Nutzen. Die BC-Migration ist das Fundament, die vier Apps bauen darauf auf. Säule 5 (Etiketten) läuft sinnvollerweise parallel zur Migration, weil sie das wegfallende Navision-5-Tool ersetzt. Optimo kann die Reihenfolge mitgestalten, PITapp begleitet den Weg."
+lede: "Jede Säule steht für sich — gemeinsam entfalten sie den vollen Nutzen. Die BC-Migration ist das Fundament, die vier Apps und das Etiketten-Modul bauen darauf auf. Säule 5 (Etiketten) läuft sinnvollerweise parallel zur Migration, weil sie das wegfallende Navision-5-Tool als integriertes Modul in der neuen BC-Version ersetzt. Optimo kann die Reihenfolge mitgestalten, PITapp begleitet den Weg."
 ---
 
 <!-- TODO: Text zum Gesamtbild (BRIEFING Kapitel 6 + 7):
