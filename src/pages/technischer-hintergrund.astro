@@ -52,11 +52,13 @@ const apps = [
 const packages = [
   {
     name: "bc-client",
-    purpose: "Anbindung an Business Central. Kapselt API-Aufrufe und Datenstrukturen.",
+    purpose:
+      "Datenzugriff aus Sicht der Apps. Spricht mit dem BFF, das wiederum mit Business Central spricht. Die Apps selbst kennen die BC-Schnittstellen nicht.",
   },
   {
     name: "auth",
-    purpose: "Benutzeranmeldung und Berechtigungsprüfung — einheitlich über alle Apps hinweg.",
+    purpose:
+      "Benutzeranmeldung und Berechtigungsprüfung. Meldet den Anwender beim BFF an und übernimmt die Session-Verwaltung in der App.",
   },
   {
     name: "messaging",
@@ -83,16 +85,16 @@ const stack = [
     note: "Typisierte Variante von JavaScript. Erkennt viele Programmierfehler bereits beim Schreiben — nicht erst im Betrieb.",
   },
   {
-    name: "React",
-    note: "Etablierte Bibliothek für moderne Web-Oberflächen. Weit verbreitet und langfristig wartbar.",
+    name: "React 19",
+    note: "Etablierte Bibliothek für moderne Web-Oberflächen. Version 19 — die aktuelle Hauptversion. Weit verbreitet und langfristig wartbar.",
   },
   {
     name: "Vite",
     note: "Schnelles Build-Werkzeug für Entwicklung und Auslieferung der Apps.",
   },
   {
-    name: "Tailwind CSS",
-    note: "Gestaltungs-Framework, das konsistente Designs über alle Apps hinweg erleichtert.",
+    name: "Tailwind CSS 4 + Preline Pro 4",
+    note: "Tailwind ist das Gestaltungs-Framework, Preline Pro liefert die fertigen Komponenten-Bausteine. Zusammen sorgen sie für ein konsistentes Erscheinungsbild über alle Apps hinweg.",
   },
   {
     name: "pnpm Workspaces & Turborepo",
@@ -101,6 +103,14 @@ const stack = [
   {
     name: "PWA-Technologie",
     note: "Erlaubt es Apps, sich wie installierte Anwendungen zu verhalten und auch ohne Internetverbindung zu funktionieren.",
+  },
+  {
+    name: "Node.js + Hono (BFF)",
+    note: "Schlanker Server, der das BFF betreibt. Hono ist ein modernes, leichtgewichtiges Server-Framework. Läuft als Windows-Dienst auf dem BC-Server.",
+  },
+  {
+    name: "PostgreSQL (App-DB)",
+    note: "Eigene, kleine Datenbank des BFF — getrennt von Business Central. Hält App-Berechtigungen, Anwenderzuordnungen und Geräte-Registrierungen.",
   },
 ];
 ---
@@ -334,7 +344,7 @@ const stack = [
         04 · Die gemeinsamen Bausteine
       </p>
       <h2 class="text-display-md font-semibold text-ink">
-        Sechs Pakete, die alle Apps nutzen
+        Die gemeinsamen Bausteine
       </h2>
       <p class="lede mt-4">
         Die wiederverwendbaren Bausteine liegen als sogenannte Packages im
@@ -357,6 +367,23 @@ const stack = [
         ))
       }
     </ul>
+
+    <div class="mt-10 max-w-3xl rounded-xl border-l-2 border-tech bg-surface-alt p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-tech">
+        Zusätzlich · ein eigener Dienst
+      </p>
+      <p class="mt-3 text-sm leading-relaxed text-ink-muted md:text-base">
+        Neben den sechs gemeinsamen Bibliotheken gehört ein eigener kleiner
+        Dienst zum Aufbau: das
+        <strong class="text-ink">BFF — Backend for Frontend</strong>. Es ist
+        die einzige Komponente, die mit Business Central direkt spricht. Die
+        vier Apps kommunizieren ausschließlich mit dem BFF, nicht mit BC.
+        Diese Trennung ist bewusst: Sie hält die BC-Zugangsdaten aus den
+        Endgeräten heraus und erlaubt es, Berechtigungen und Sitzungen
+        zentral zu verwalten. Das BFF läuft im internen Netz von Optimo,
+        gemeinsam mit dem BC-Server.
+      </p>
+    </div>
 
     <MonorepoDiagram />
   </Section>
@@ -417,13 +444,23 @@ const stack = [
       <li class="flex gap-4">
         <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tech/10 text-xs font-semibold text-tech">2</span>
         <p class="text-sm leading-relaxed text-ink-muted md:text-base">
-          Der <span class="font-mono text-tech">bc-client</span> spricht über die definierte
-          Schnittstelle mit Business Central. Die Antwort nimmt denselben
-          Weg zurück.
+          Der <span class="font-mono text-tech">bc-client</span> spricht
+          <strong class="text-ink">nicht direkt mit Business Central</strong>,
+          sondern mit dem <strong class="text-ink">BFF</strong>. Das BFF
+          prüft die Sitzung des Anwenders und ob er für die angefragten
+          Daten berechtigt ist.
         </p>
       </li>
       <li class="flex gap-4">
         <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tech/10 text-xs font-semibold text-tech">3</span>
+        <p class="text-sm leading-relaxed text-ink-muted md:text-base">
+          Erst dann reicht das BFF die Anfrage an Business Central weiter —
+          mit einem internen Dienstkonto. Die Antwort nimmt denselben Weg
+          zurück.
+        </p>
+      </li>
+      <li class="flex gap-4">
+        <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tech/10 text-xs font-semibold text-tech">4</span>
         <p class="text-sm leading-relaxed text-ink-muted md:text-base">
           Die <strong class="text-ink">Zentrale</strong> kommuniziert zusätzlich über die
           <span class="font-mono text-tech">messaging</span>-Komponente direkt mit den
@@ -432,7 +469,7 @@ const stack = [
         </p>
       </li>
       <li class="flex gap-4">
-        <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tech/10 text-xs font-semibold text-tech">4</span>
+        <span class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-tech/10 text-xs font-semibold text-tech">5</span>
         <p class="text-sm leading-relaxed text-ink-muted md:text-base">
           Ist eine mobile App offline, werden Aktionen lokal gespeichert.
           Sobald wieder Verbindung besteht, gleicht die App sich automatisch
@@ -472,16 +509,57 @@ const stack = [
       <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
         <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
         <span>
-          Authentifizierung erfolgt über klar definierte Benutzerrollen.
-          Jeder Anwender sieht genau das, was zu seiner Aufgabe gehört —
-          nicht mehr.
+          Zwischen Apps und Business Central sitzt das
+          <strong class="text-ink">BFF als Vermittlerschicht</strong>. Die
+          Apps kennen weder die BC-Adresse noch BC-Zugangsdaten. Sie sehen
+          ausschließlich das BFF. Damit bleibt Business Central aus dem
+          öffentlichen Netz unerreichbar.
         </span>
       </li>
       <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
         <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
         <span>
-          Die Kommunikation zwischen den Apps und Business Central erfolgt
-          verschlüsselt.
+          <strong class="text-ink">Anmeldung über das vorhandene
+          Optimo-Active-Directory.</strong> Mitarbeiter verwenden ihren
+          gewohnten Windows-Account, kein zweites Passwort. Die Prüfung
+          erfolgt über eine verschlüsselte LDAPS-Verbindung.
+        </span>
+      </li>
+      <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
+        <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
+        <span>
+          <strong class="text-ink">Sitzungen</strong> werden in einem
+          <strong class="text-ink">HttpOnly-Cookie</strong> geführt — das
+          heißt: JavaScript im Browser kann den Sitzungs-Schlüssel nicht
+          auslesen. Damit sind klassische Angriffe über manipulierte
+          Webseiten wirkungslos.
+        </span>
+      </li>
+      <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
+        <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
+        <span>
+          <strong class="text-ink">Rollen pro App.</strong> Jeder Anwender
+          ist in der App-Datenbank explizit für bestimmte Apps freigeschaltet
+          (Scanner, Außendienst, Auslieferung, Zentrale). Wer keine
+          Freigabe für eine App hat, kann sie nicht einmal aufrufen.
+        </span>
+      </li>
+      <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
+        <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
+        <span>
+          Die Kommunikation zwischen den Apps, dem BFF und Business Central
+          erfolgt durchgängig <strong class="text-ink">verschlüsselt</strong>
+          (HTTPS).
+        </span>
+      </li>
+      <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
+        <span aria-hidden="true" class="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-tech" />
+        <span>
+          <strong class="text-ink">Eigene App-Datenbank.</strong>
+          Berechtigungen und Geräte-Registrierungen liegen in einer
+          separaten PostgreSQL-Datenbank auf dem BC-Server. Sie ist von der
+          eigentlichen Business-Central-Datenbank getrennt — Änderungen an
+          Berechtigungen wirken sich nicht auf das ERP aus.
         </span>
       </li>
       <li class="flex gap-3 text-sm leading-relaxed text-ink-muted md:text-base">
@@ -494,17 +572,14 @@ const stack = [
       </li>
     </ul>
 
-    {/* TODO: Konkrete Hosting-Standorte der App-Server, exakte Verschlüsselungsverfahren
-       und Zugriffsprotokolle werden im Technik-Termin mit der Optimo-IT geklärt
-       (siehe BRIEFING.md Abschnitt 8). */}
     <div class="mt-8 max-w-3xl rounded-lg border border-line/70 bg-surface-alt p-5">
       <p class="text-xs font-semibold uppercase tracking-[0.18em] text-ink-subtle">
         Noch in Klärung
       </p>
       <p class="mt-2 text-sm leading-relaxed text-ink-muted">
-        Konkrete Details zu Hosting-Standort der App-Server, eingesetzten
-        Verschlüsselungsverfahren und Zugriffsprotokollen werden im
-        Technik-Termin mit der Optimo-IT festgelegt.
+        Konkrete Details zur externen Erreichbarkeit der Apps (Außendienst
+        beim Kunden, Fahrer unterwegs) und zu den eingesetzten Zertifikaten
+        werden im Technik-Termin mit der Optimo-IT festgelegt.
       </p>
     </div>
   </Section>
